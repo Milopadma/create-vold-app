@@ -5,6 +5,7 @@
   "main": "create-vold-app.ts",
   "scripts": {
     "start": "bun run create-vold-app.ts",
+    "start:npm": "ts-node create-vold-app.ts",
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "ts-node": "^10.9.1"
   }
 }
