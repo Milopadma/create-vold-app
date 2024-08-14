@@ -1,0 +1,20 @@
+{
+  "main": [
+    { "name": "Wellness", "path": "/integrative-wellness" },
+    { "name": "Innovation", "path": "/innovation" },
+    { "name": "Sustainability", "path": "/sustainability" },
+    { "name": "The Story", "path": "/the-story" },
+    { "name": "New Developments", "path": "/new-developments" }
+  ],
+  "footer": {
+    "left": [
+      { "name": "Wellness", "path": "/integrative-wellness" },
+      { "name": "Innovation", "path": "/innovation" },
+      { "name": "Sustainability", "path": "/sustainability" }
+    ],
+    "right": [
+      { "name": "The Story", "path": "/the-story" },
+      { "name": "New Developments", "path": "/new-developments" }
+    ]
+  }
+}

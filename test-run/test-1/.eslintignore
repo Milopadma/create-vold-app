@@ -1,0 +1,10 @@
+node_modules
+components.d.ts
+nuxt.d.ts
+dist
+.nuxt
+.vite
+.output
+**/public/**
+**/styles/**
+**/data/**

@@ -1,0 +1,73 @@
+@use 'functions' as fn;
+
+// All unit number is using pixel measurement
+// (so dont forget to use functions before using it)
+
+/// Colors
+$color-primary: #2b3530;
+$color-secondary: #30493d;
+$color-background: #2b3530;
+$color-background2: #ced1bf;
+$color-text: #d1ccbf;
+$color-teriary: #ca7d57;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-cursor: currentcolor;
+
+/// Fonts
+
+// Font family
+$font-family-main: 'Basis Grotesque', sans-serif;
+
+// Font size
+// Heading / Headline
+$font-size-heading1: 144;
+$font-size-heading1-m: 72;
+$font-size-heading2: 52;
+$font-size-heading2-m: 28;
+$font-size-heading3: 40;
+$font-size-heading3-m: 24;
+
+// Subheading
+$font-size-subheading1: 30;
+$font-size-subheading1-m: 20;
+$font-size-subheading2: 28;
+$font-size-subheading2-m: 18;
+$font-size-subheading3: 26;
+$font-size-subheading3-m: 18;
+$font-size-subheading4: 24;
+$font-size-subheading4-m: 18;
+
+// Body
+$font-size-body1: 20;
+$font-size-body1-m: 16;
+$font-size-body2: 18;
+$font-size-body2-m: 16;
+$font-size-body3: 16;
+$font-size-body3-m: 13;
+
+// Button
+$font-size-button1: 20;
+$font-size-button1-m: 18;
+$font-size-button2: 18;
+$font-size-button2-m: 16;
+$font-size-button3: 16;
+$font-size-button3-m: 14;
+
+// Caption
+$font-size-caption1: 14;
+$font-size-caption1-m: 12;
+
+/// Layouts
+$grid-col: 12;
+$grid-col-m: 4;
+$grid-gap: 24;
+$grid-gap-m: 16;
+$container: 64;
+$container-m: 15;
+
+/// Motion
+$transition-duration: 0.8s;
+$transition-ease: cubic-bezier(0.24, 0.43, 0.15, 0.97);
+$transition-default: $transition-duration $transition-ease;
+$transition-delay: 0.15s;

@@ -1,0 +1,12 @@
+@use './helpers/variables';
+@use './helpers/mixins' as mx;
+@use 'sass:meta';
+
+:root {
+  --vw: 1440;
+  --multiplier: 100vw;
+
+  @include mx.mobile {
+    --vw: 375;
+  }
+}

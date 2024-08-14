@@ -1,0 +1,23 @@
+name: staging
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd /home/sysadmin/projects/elementis
+            git checkout .
+            git pull origin main
+            docker run --rm -v .:/app --workdir /app node:lts-buster npm install
+            docker run --rm -v .:/app --workdir /app node:lts-buster npm run build
+            docker stop elementis
+            docker run --name elementis -d --rm -v .:/app --workdir /app -e PORT=50022 -p 127.0.0.1:50022:50022 node:lts-buster node .output/server/index.mjs

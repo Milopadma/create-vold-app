@@ -1,0 +1,58 @@
+// styles.scss
+@use './helpers/mixins' as mx;
+
+.font-heading1 {
+  @include mx.font-heading1;
+}
+
+.font-heading2 {
+  @include mx.font-heading2;
+}
+
+.font-heading3 {
+  @include mx.font-heading3;
+}
+
+.font-subheading1 {
+  @include mx.font-subheading1;
+}
+
+.font-subheading2 {
+  @include mx.font-subheading2;
+}
+
+.font-subheading3 {
+  @include mx.font-subheading3;
+}
+
+.font-subheading4 {
+  @include mx.font-subheading4;
+}
+
+.font-body1 {
+  @include mx.font-body1;
+}
+
+.font-body2 {
+  @include mx.font-body2;
+}
+
+.font-body3 {
+  @include mx.font-body3;
+}
+
+.font-button1 {
+  @include mx.font-button1;
+}
+
+.font-button2 {
+  @include mx.font-button2;
+}
+
+.font-button3 {
+  @include mx.font-button3;
+}
+
+.font-caption1 {
+  @include mx.font-caption1;
+}

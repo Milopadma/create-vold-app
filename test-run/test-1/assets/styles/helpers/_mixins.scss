@@ -1,0 +1,399 @@
+// styles.scss
+@use 'functions' as fn;
+@use 'variables' as var;
+
+// Responsive
+@mixin mobile() {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// Typography
+@mixin font-heading1(
+  $family: var.$font-family-main,
+  $size: var.$font-size-heading1,
+  $size-m: var.$font-size-heading1-m,
+  $weight: 300,
+  $line: 144,
+  $letter: -2.88,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-heading2(
+  $family: var.$font-family-main,
+  $size: var.$font-size-heading2,
+  $size-m: var.$font-size-heading2-m,
+  $weight: 300,
+  $line: 52,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-heading3(
+  $family: var.$font-family-main,
+  $size: var.$font-size-heading3,
+  $size-m: var.$font-size-heading3-m,
+  $weight: 300,
+  $line: 40,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-subheading1(
+  $family: var.$font-family-main,
+  $size: var.$font-size-subheading1,
+  $size-m: var.$font-size-subheading1-m,
+  $weight: 300,
+  $line: 30,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-subheading2(
+  $family: var.$font-family-main,
+  $size: var.$font-size-subheading2,
+  $size-m: var.$font-size-subheading2-m,
+  $weight: 300,
+  $line: 24,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-subheading3(
+  $family: var.$font-family-main,
+  $size: var.$font-size-subheading3,
+  $size-m: var.$font-size-subheading3-m,
+  $weight: 400,
+  $line: 26,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-subheading4(
+  $family: var.$font-family-main,
+  $size: var.$font-size-subheading4,
+  $size-m: var.$font-size-subheading4-m,
+  $weight: 400,
+  $line: 24,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-body1(
+  $family: var.$font-family-main,
+  $size: var.$font-size-body1,
+  $size-m: var.$font-size-body1-m,
+  $weight: 400,
+  $line: 20,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-body2(
+  $family: var.$font-family-main,
+  $size: var.$font-size-body2,
+  $size-m: var.$font-size-body2-m,
+  $weight: 400,
+  $line: 24,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-body3(
+  $family: var.$font-family-main,
+  $size: var.$font-size-body3,
+  $size-m: var.$font-size-body3-m,
+  $weight: 400,
+  $line: 20,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-button1(
+  $family: var.$font-family-main,
+  $size: var.$font-size-button1,
+  $size-m: var.$font-size-button1-m,
+  $weight: 400,
+  $line: 20,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-button2(
+  $family: var.$font-family-main,
+  $size: var.$font-size-button2,
+  $size-m: var.$font-size-button2-m,
+  $weight: 400,
+  $line: 24,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-button3(
+  $family: var.$font-family-main,
+  $size: var.$font-size-button3,
+  $size-m: var.$font-size-button3-m,
+  $weight: 400,
+  $line: 16,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin font-caption1(
+  $family: var.$font-family-main,
+  $size: var.$font-size-caption1,
+  $size-m: var.$font-size-caption1-m,
+  $weight: 400,
+  $line: 14,
+  $letter: null,
+  $transform: null
+) {
+  font-family: $family;
+  font-size: fn.toVw($size);
+  font-weight: $weight;
+  line-height: if($line == normal, normal, calc(#{$line} / #{$size}));
+  letter-spacing: if($letter != null, fn.toEm($letter, $size), null);
+  text-transform: $transform;
+
+  @if ($size-m != null) {
+    @include mobile() {
+      font-size: fn.toVw($size-m);
+    }
+  }
+}
+
+@mixin container-padding() {
+  padding-left: var.$container;
+  padding-right: var.$container;
+
+  @include mobile {
+    padding-left: var.$container-m;
+    padding-right: var.$container-m;
+  }
+}
+
+// Etc
+@mixin text-underline($color: currentColor) {
+  color: $color;
+  width: fit-content;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+
+  &:not(.btn, button) {
+    &::before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: $color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform-origin: right;
+      transform: scale3d(0, 1, 1);
+      transition: transform var.$transition-default;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      transform-origin: left;
+      transform: scale3d(1, 1, 1);
+    }
+
+    &.active {
+      &::before {
+        transform-origin: 0% 50%;
+        transform: scale3d(1, 1, 1);
+      }
+
+      // &:hover {
+      //   &::before {
+      //     transform-origin: 100% 100%;
+      //     transform: scale3d(0, 1, 1);
+      //   }
+      // }
+    }
+  }
+}

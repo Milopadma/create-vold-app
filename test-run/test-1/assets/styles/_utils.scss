@@ -1,0 +1,148 @@
+@use './helpers/mixins' as mx;
+
+.desktop {
+  display: block;
+
+  @include mx.mobile {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+
+  @include mx.mobile {
+    display: block;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.absolute-topleft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.absolute-topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.absolute-bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.absolute-bottomright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.z--1 {
+  z-index: -1;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(0 0 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+.overlay-black {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  background: #000;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.overlay-gradient {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.is--transition {
+  pointer-events: none;
+}
+
+[style*='--aspect'] > *:first-child {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@supports (--custom: property) {
+  [style*='--aspect'] {
+    position: relative;
+  }
+  [style*='--aspect']::before {
+    content: '';
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect)));
+  }
+  [style*='--aspect'] > *:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
