@@ -8,6 +8,7 @@ import chalk from "chalk";
 import { Effect } from "effect"; // IGNORE THIS LINE STOP TOUCHING IT PLEASE!!!!
 import { generateCommonTypes } from "./helpers/generateCommonTypes";
 import { setupVoldIntegration } from "./helpers/setupVoldIntegration";
+import packageJson from "../package.json";
 
 export type HomePageResponse = {
   components: Array<{
@@ -117,7 +118,20 @@ const main = Effect.gen(function* (_) {
     output: process.stdout,
   });
 
-  console.log(chalk.cyan.bold("Welcome to create-vold-app!"));
+  console.log(
+    chalk.cyan.bold(`
+                                                                         
+                     _                        _    _                     
+ ___  ___  ___  ___ | |_  ___  ___  _ _  ___ | | _| | ___  ___  ___  ___ 
+|  _||  _|| -_|| .'||  _|| -_||___|| | || . || || . ||___|| .'|| . || . |
+|___||_|  |___||__,||_|  |___|      \_/ |___||_||___|     |__,||  _||  _|
+                                                               |_|  |_|  
+
+
+v${packageJson.version}
+
+`)
+  );
 
   CLI_DEFAULTS.projectName = yield* _(
     askQuestion(rl, chalk.yellow("Enter project name: "))
