@@ -4,26 +4,22 @@
   "description": "Scaffold a Nuxt 3 app with Vold CMS integration",
   "main": "create-vold-app.ts",
   "scripts": {
-    "start": "bun run create-vold-app.ts",
-    "start:npm": "ts-node create-vold-app.ts",
-    "dev": "nuxt dev",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "build": "tsup"
   },
   "bin": {
-    "create-vold-app": "./create-vold-app.ts"
+    "create-vold-app": "./dist/create-vold-app.js"
   },
   "dependencies": {
-    "effect": "^2.0.0-next.54",
     "axios": "^1.7.3",
     "chalk": "^5.3.0",
+    "effect": "^2.0.0-next.54",
     "nuxt": "latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/node": "^22.2.0",
     "ts-node": "^10.9.1",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.1.0"
   }
