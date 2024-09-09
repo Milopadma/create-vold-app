@@ -1,6 +1,5 @@
 import { execSync } from "child_process";
 import fs from "fs";
-import path from "path";
 import readline from "readline";
 import axios from "axios";
 import chalk from "chalk";
@@ -173,23 +172,28 @@ const main = Effect.gen(function* (_) {
   rl.close();
 });
 
-const askQuestion = (rl: readline.Interface, question: string) =>
+const askQuestion = (
+  rl: readline.Interface,
+  question: string
+): Effect.Effect<string, Error> =>
   Effect.promise(
     () => new Promise<string>((resolve) => rl.question(question, resolve))
   );
 
-const createProjectDirectory = (projectName: string) =>
+const createProjectDirectory = (
+  projectName: string
+): Effect.Effect<void, FileSystemError> =>
   Effect.try({
     try: () => {
       console.log(chalk.magenta("Creating project directory..."));
       fs.mkdirSync(projectName);
       process.chdir(projectName);
     },
-    catch: (error: any) =>
+    catch: (error) =>
       new FileSystemError(`Failed to create project directory: ${error}`),
   });
 
-const cloneTemplate = () =>
+const cloneTemplate = (): Effect.Effect<void, Error> =>
   Effect.try({
     try: () => {
       console.log(chalk.magenta("Cloning Nuxt 3 template from GitHub..."));
@@ -199,20 +203,29 @@ const cloneTemplate = () =>
       );
       execSync("rm -rf .git", { stdio: "inherit" });
     },
-    catch: (error: any) => new Error(`Failed to clone template: ${error}`),
+    catch: (error) => new Error(`Failed to clone template: ${error}`),
   });
 
-const installDependencies = (packageManager: string) =>
+const installDependencies = (
+  packageManager: string
+): Effect.Effect<void, Error> =>
   Effect.try({
     try: () => {
       console.log(chalk.magenta("Installing dependencies..."));
       execSync(`${packageManager} install`, { stdio: "inherit" });
     },
-    catch: (error: any) =>
-      new Error(`Failed to install dependencies: ${error}`),
+    catch: (error) => new Error(`Failed to install dependencies: ${error}`),
   });
 
-const fetchCmsData = (voldClientToken: string) =>
+const fetchCmsData = (
+  voldClientToken: string
+): Effect.Effect<
+  {
+    homepage: HomePageResponse;
+    pages: PageResponse["results"];
+  },
+  FetchError
+> =>
   Effect.tryPromise({
     try: async () => {
       const baseUrl = voldClientToken
@@ -229,13 +242,13 @@ const fetchCmsData = (voldClientToken: string) =>
         pages: pagesResponse.data.results ?? [],
       };
     },
-    catch: (error: any) => new FetchError(`Error fetching CMS data: ${error}`),
+    catch: (error) => new FetchError(`Error fetching CMS data: ${error}`),
   });
 
 const generateSitemap = (cmsData: {
   homepage: HomePageResponse;
   pages: PageResponse["results"];
-}) =>
+}): Effect.Effect<void, FileSystemError> =>
   Effect.try({
     try: () => {
       let sitemapContent = "# Sitemap\n\n";
@@ -260,7 +273,7 @@ const generateSitemap = (cmsData: {
       });
       fs.writeFileSync("sitemap.md", sitemapContent);
     },
-    catch: (error: any) =>
+    catch: (error) =>
       new FileSystemError(`Failed to generate sitemap: ${error}`),
   });
 
@@ -292,7 +305,7 @@ Effect.runPromise(main).then(
       chalk.green.bold("Project scaffolding completed successfully!")
     );
   },
-  (error: any) => {
+  (error) => {
     console.error(chalk.red.bold("An error occurred:"), error);
     process.exit(1);
   }
