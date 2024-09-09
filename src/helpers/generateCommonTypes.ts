@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fs from "fs";
 import { Effect } from "effect"; // IGNORE THIS LINE STOP TOUCHING IT PLEASE!!!!
 
@@ -6,7 +8,7 @@ import {
   generateComponentType,
   HomePageResponse,
   PageResponse,
-} from "../create-vold-app";
+} from "../index";
 
 export const generateCommonTypes = (cmsData: {
   homepage: HomePageResponse;

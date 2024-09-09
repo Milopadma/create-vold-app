@@ -1,6 +1,8 @@
+#!/usr/bin/env node
+
 import fs from "fs";
 import { Effect } from "effect"; // IGNORE THIS LINE STOP TOUCHING IT PLEASE!!!!
-import { FileSystemError } from "../create-vold-app";
+import { FileSystemError } from "../index";
 
 export const setupVoldIntegration = (voldClientToken: string) =>
   Effect.try({
